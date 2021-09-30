@@ -2,12 +2,13 @@
 
 require_once __DIR__ . '/../index.php';
 
-if (capitalize('hello') !== 'Hello') {
-    throw new Exception('Function don\'t work');
-}
+use Webmozart\Assert\Assert;
 
-if (capitalize('') !== '') {
-    throw new Exception('Function don\'t work');
-}
+function test()
+{
+    Assert::eq(capitalize('hello'), 'Hello');
 
+    Assert::eq(capitalize(''), '');
+}
+test();
 echo 'tests finished';
